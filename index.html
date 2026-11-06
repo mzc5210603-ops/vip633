@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>拾句斋 · 名句标题工坊</title>
+  <meta name="description" content="历史名人名句 × 短视频标题生成器：抖音、小红书、快手三平台文风，附名句典藏库与爆款标题体检。" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <div class="sheet">
+
+    <!-- 刊头 -->
+    <header class="masthead">
+      <div class="mast-line">
+        <span class="mast-tag">第贰拾壹号</span>
+        <h1>拾 句 斋</h1>
+        <span class="mast-tag">名句标题工坊</span>
+      </div>
+      <div class="mast-sub">
+        <span>名句典藏</span><i>·</i><span>三平台文风</span><i>·</i><span>爆款体检</span>
+        <span class="mast-date" id="today">—</span>
+      </div>
+    </header>
+
+    <!-- 版面导航 -->
+    <nav class="cols" id="menu">
+      <button class="col active" data-t="gen"><i>壹</i>标题生成</button>
+      <button class="col" data-t="lib"><i>贰</i>名句典藏</button>
+      <button class="col" data-t="check"><i>叁</i>爆款体检</button>
+    </nav>
+
+    <main>
+
+      <!-- ═══ 壹 标题生成 ═══ -->
+      <section class="folio" id="gen">
+        <div class="folio-head">
+          <h2>壹 — 标题生成</h2>
+          <div class="ops">
+            <select id="gPlatform">
+              <option value="dy">抖音 · 爆款风</option>
+              <option value="xhs">小红书 · 种草风</option>
+              <option value="ks">快手 · 接地气</option>
+              <option value="all">三种都要</option>
+            </select>
+            <select id="gEra">
+              <option value="">全部朝代</option>
+              <option>先秦</option><option>汉魏</option><option>唐宋</option>
+              <option>明清</option><option>近代</option>
+            </select>
+            <button class="btn" id="gGo">✦ 生 成</button>
+          </div>
+        </div>
+
+        <div class="quote-pick">
+          <span class="qp-label">题眼名句</span>
+          <div class="qp-main">
+            <p id="gQuote">—— 点「生成」掷签选句 ——</p>
+          </div>
+          <button class="btn sm" id="gReroll">↻ 换一句</button>
+        </div>
+
+        <ul class="titles" id="gOut"></ul>
+
+        <div class="fav-bar">
+          <button class="btn sm" id="favToggle">☰ 收藏夹 <b id="favCnt">0</b></button>
+        </div>
+        <ul class="titles fav" id="favList" hidden></ul>
+      </section>
+
+      <!-- ═══ 贰 名句典藏 ═══ -->
+      <section class="folio" id="lib" hidden>
+        <div class="folio-head">
+          <h2>贰 — 名句典藏</h2>
+          <div class="ops">
+            <input id="lSearch" placeholder="搜名句 / 名人 / 关键词…" />
+            <select id="lEra">
+              <option value="">全部朝代</option>
+              <option>先秦</option><option>汉魏</option><option>唐宋</option>
+              <option>明清</option><option>近代</option>
+            </select>
+            <select id="lMood">
+              <option value="">全部气象</option>
+              <option>志气</option><option>清醒</option><option>深情</option>
+              <option>豁达</option><option>锋利</option><option>闲适</option>
+            </select>
+          </div>
+        </div>
+        <ul class="lib-list" id="libList"></ul>
+        <p class="lib-empty" id="libEmpty" hidden>没有检得符合条件的句子。</p>
+      </section>
+
+      <!-- ═══ 叁 爆款体检 ═══ -->
+      <section class="folio" id="check" hidden>
+        <div class="folio-head">
+          <h2>叁 — 爆款体检</h2>
+          <button class="btn" id="cGo">开始体检</button>
+        </div>
+        <textarea id="cInput" rows="3" placeholder="把你写好的标题贴进来，量一量它的爆款体质……"></textarea>
+
+        <div class="gauge-row">
+          <div class="gauge">
+            <div class="needle" id="cNeedle"></div>
+            <div class="gauge-ticks">
+              <i>0</i><i>25</i><i>50</i><i>75</i><i>100</i>
+            </div>
+            <b id="cScore">—</b>
+            <span id="cGrade">待检</span>
+          </div>
+          <ul class="reports" id="cReports"></ul>
+        </div>
+      </section>
+
+    </main>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
